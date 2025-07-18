@@ -1,0 +1,102 @@
+{
+    "name": "New Controls",
+    "maps": [
+        {
+            "name": "Tank",
+            "id": "09874b12-b5ef-4356-b558-7432721febbe",
+            "actions": [
+                {
+                    "name": "MoveMent",
+                    "type": "Button",
+                    "id": "99eed6f8-a0e9-4da0-8a84-1e7b85bf239e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HandBrake",
+                    "type": "Button",
+                    "id": "faebb3a8-6e3b-4b9d-bbec-30a536f63b79",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fc5c901b-0fbc-42ef-8b0a-80e7af675cbb",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveMent",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca68becd-0386-43f8-8bea-82724261bfc0",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HandBrake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Turret",
+            "id": "a62ea5bd-2526-420d-a87a-4eb15657adb9",
+            "actions": [
+                {
+                    "name": "Fire",
+                    "type": "Button",
+                    "id": "defeb644-0b1c-46e7-9fc8-fcb338f414d6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Focus",
+                    "type": "Button",
+                    "id": "4d6ac413-a60f-4888-b8df-0c52185a0e9f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "098b919c-e938-4dce-83ae-7aeba3b56352",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b940ec6-b8a3-4493-82c5-4a90ab002371",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Focus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
