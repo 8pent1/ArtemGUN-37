@@ -28,13 +28,13 @@ public partial class @TankControl: IInputActionCollection2, IDisposable
             ""id"": ""09874b12-b5ef-4356-b558-7432721febbe"",
             ""actions"": [
                 {
-                    ""name"": ""MoveMent"",
-                    ""type"": ""Button"",
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
                     ""id"": ""99eed6f8-a0e9-4da0-8a84-1e7b85bf239e"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""HandBrake"",
@@ -49,25 +49,69 @@ public partial class @TankControl: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""fc5c901b-0fbc-42ef-8b0a-80e7af675cbb"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MoveMent"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ca68becd-0386-43f8-8bea-82724261bfc0"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HandBrake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""8c4d59a9-aa9b-44ea-9878-10be38b6e2a3"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""d2407905-1fe0-439f-80e5-72571a980a1a"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a20ae98e-9ef0-4f50-93c5-bcfd02aa8bb6"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""64f536b6-9652-49ec-80c0-1e07121e0a85"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ccf9a637-2fb3-4a8e-89ea-805bfd7eb2a0"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -86,12 +130,12 @@ public partial class @TankControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Focus"",
-                    ""type"": ""Button"",
-                    ""id"": ""4d6ac413-a60f-4888-b8df-0c52185a0e9f"",
-                    ""expectedControlType"": ""Button"",
+                    ""type"": ""Value"",
+                    ""id"": ""b3d1d785-0d96-4d2a-a995-5877af9c4d5f"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -108,8 +152,8 @@ public partial class @TankControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1b940ec6-b8a3-4493-82c5-4a90ab002371"",
-                    ""path"": """",
+                    ""id"": ""1db7c1b0-a75a-40ad-81d1-24ec59d7a9f5"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -124,7 +168,7 @@ public partial class @TankControl: IInputActionCollection2, IDisposable
 }");
         // Tank
         m_Tank = asset.FindActionMap("Tank", throwIfNotFound: true);
-        m_Tank_MoveMent = m_Tank.FindAction("MoveMent", throwIfNotFound: true);
+        m_Tank_Movement = m_Tank.FindAction("Movement", throwIfNotFound: true);
         m_Tank_HandBrake = m_Tank.FindAction("HandBrake", throwIfNotFound: true);
         // Turret
         m_Turret = asset.FindActionMap("Turret", throwIfNotFound: true);
@@ -191,13 +235,13 @@ public partial class @TankControl: IInputActionCollection2, IDisposable
     // Tank
     private readonly InputActionMap m_Tank;
     private List<ITankActions> m_TankActionsCallbackInterfaces = new List<ITankActions>();
-    private readonly InputAction m_Tank_MoveMent;
+    private readonly InputAction m_Tank_Movement;
     private readonly InputAction m_Tank_HandBrake;
     public struct TankActions
     {
         private @TankControl m_Wrapper;
         public TankActions(@TankControl wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MoveMent => m_Wrapper.m_Tank_MoveMent;
+        public InputAction @Movement => m_Wrapper.m_Tank_Movement;
         public InputAction @HandBrake => m_Wrapper.m_Tank_HandBrake;
         public InputActionMap Get() { return m_Wrapper.m_Tank; }
         public void Enable() { Get().Enable(); }
@@ -208,9 +252,9 @@ public partial class @TankControl: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_TankActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_TankActionsCallbackInterfaces.Add(instance);
-            @MoveMent.started += instance.OnMoveMent;
-            @MoveMent.performed += instance.OnMoveMent;
-            @MoveMent.canceled += instance.OnMoveMent;
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
             @HandBrake.started += instance.OnHandBrake;
             @HandBrake.performed += instance.OnHandBrake;
             @HandBrake.canceled += instance.OnHandBrake;
@@ -218,9 +262,9 @@ public partial class @TankControl: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(ITankActions instance)
         {
-            @MoveMent.started -= instance.OnMoveMent;
-            @MoveMent.performed -= instance.OnMoveMent;
-            @MoveMent.canceled -= instance.OnMoveMent;
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
             @HandBrake.started -= instance.OnHandBrake;
             @HandBrake.performed -= instance.OnHandBrake;
             @HandBrake.canceled -= instance.OnHandBrake;
@@ -297,7 +341,7 @@ public partial class @TankControl: IInputActionCollection2, IDisposable
     public TurretActions @Turret => new TurretActions(this);
     public interface ITankActions
     {
-        void OnMoveMent(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
         void OnHandBrake(InputAction.CallbackContext context);
     }
     public interface ITurretActions
