@@ -19,7 +19,7 @@ namespace Tanks
 		
 		private void Awake()
 		{
-			_tank.Handbreak.performed += HandbreakChangeEventHandler;
+			_tank.Handbreak.performed += HandbreakChangeEventHandler;	
 			_tank.Handbreak.canceled += HandbreakChangeEventHandler;
 			_turret.Fire.performed += FireChangeEventHandler;
 		}

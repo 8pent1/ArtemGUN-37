@@ -6,6 +6,15 @@
             "id": "09874b12-b5ef-4356-b558-7432721febbe",
             "actions": [
                 {
+                    "name": "Handbreak",
+                    "type": "Button",
+                    "id": "faebb3a8-6e3b-4b9d-bbec-30a536f63b79",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "99eed6f8-a0e9-4da0-8a84-1e7b85bf239e",
@@ -13,31 +22,11 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "HandBrake",
-                    "type": "Button",
-                    "id": "faebb3a8-6e3b-4b9d-bbec-30a536f63b79",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "ca68becd-0386-43f8-8bea-82724261bfc0",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HandBrake",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "2D Vector",
+                    "name": "WASD",
                     "id": "8c4d59a9-aa9b-44ea-9878-10be38b6e2a3",
                     "path": "2DVector",
                     "interactions": "",
@@ -90,6 +79,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ca68becd-0386-43f8-8bea-82724261bfc0",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Handbreak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
