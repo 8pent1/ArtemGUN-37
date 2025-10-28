@@ -15,19 +15,19 @@ MonoBehaviour:
   <Settings>k__BackingField:
   - Mult: 1
     Text: wow
-    Clip: {fileID: 0}
+    Clip: {fileID: 7400000, guid: b485c12ed7416174cb21b17552b215a3, type: 2}
   - Mult: 2
     Text: great
-    Clip: {fileID: 0}
+    Clip: {fileID: 7400000, guid: 5108700ecb15d724faaaf77f19c448c3, type: 2}
   - Mult: 3
     Text: super duper
-    Clip: {fileID: 0}
+    Clip: {fileID: 7400000, guid: 85469bf3daaf7a74f94d0be113193f67, type: 2}
   - Mult: 4
     Text: hardcore
-    Clip: {fileID: 0}
+    Clip: {fileID: 7400000, guid: 624c786e2516138438a906f31209d428, type: 2}
   - Mult: 5
     Text: bestest
-    Clip: {fileID: 0}
+    Clip: {fileID: 7400000, guid: 2b442601a6b8a704ca6cf7837bee04ac, type: 2}
   - Mult: 6
-    Text: Top 1 of world
-    Clip: {fileID: 0}
+    Text: '!CARNAGE!'
+    Clip: {fileID: 7400000, guid: e6f55df359cffb94bbc7649981ee0ccf, type: 2}
